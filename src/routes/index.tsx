@@ -5,6 +5,8 @@ import ceremony from "@/assets/ceremony-room.jpg";
 import farewell from "@/assets/farewell-cat.jpg";
 import urns from "@/assets/custom-urns.jpg";
 import noseprint from "@/assets/noseprint-pendant.jpg";
+import guideWipe from "@/assets/guide-wipe.jpg";
+import guideBox from "@/assets/guide-box.jpg";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const Route = createFileRoute("/")({
@@ -137,6 +139,67 @@ function HomePage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Guide: What to do */}
+      <section className="bg-[var(--cream)]">
+        <div className="mx-auto max-w-6xl px-5 py-20">
+          <div className="grid items-start gap-12 md:grid-cols-[1.1fr_1fr]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-primary">A Gentle Guide</p>
+              <h2 className="mt-3 font-serif text-4xl text-foreground md:text-5xl">
+                What to do when your pet has passed away
+              </h2>
+              <p className="mt-2 font-serif italic text-foreground/70">宠物突然离世该怎么办？</p>
+              <p className="mt-5 max-w-lg text-muted-foreground">
+                The first hours can feel overwhelming. These four small steps will
+                help keep your pet comfortable and at peace until we arrive.
+              </p>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                <img src={guideWipe} alt="Gently wiping a pet's body with a soft tissue" className="aspect-square w-full rounded-2xl object-cover shadow-card" />
+                <img src={guideBox} alt="A pet resting peacefully inside a covered box" className="aspect-square w-full rounded-2xl object-cover shadow-card" />
+              </div>
+            </div>
+
+            <ol className="space-y-5">
+              {[
+                {
+                  t: "Gently clean their body",
+                  b: "Use wet or dry tissues to wipe your pet's body. If there are any fluids from the mouth, nose, or any excretions, wipe them softly and keep the area dry.",
+                },
+                {
+                  t: "Prepare a soft resting box",
+                  b: "Line a box with a cloth or pet pee-pad. If possible, add a small pillow to support their head so they look as though they are sleeping.",
+                },
+                {
+                  t: "Lay them down with love",
+                  b: "Place your pet in the box and cover them with a soft cloth. You may add their favourite toys or treats to keep them company.",
+                },
+                {
+                  t: "Keep them cool, then contact us",
+                  b: "Move the box into an air-conditioned room set to the coldest temperature. Then message AiPet on WhatsApp — we will take care of everything from there.",
+                },
+              ].map((s, i) => (
+                <li key={s.t} className="flex gap-5 rounded-2xl border border-border/60 bg-card p-5 shadow-card">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-serif text-lg text-primary">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <h3 className="text-lg text-foreground">{s.t}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.b}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5">
+            <p className="text-sm text-foreground/80">
+              Need help right now? We answer WhatsApp anytime — day or night.
+            </p>
+            <WhatsAppButton label="WhatsApp 016-444 4919" />
+          </div>
         </div>
       </section>
 
