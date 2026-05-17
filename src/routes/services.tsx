@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import farewell from "@/assets/farewell-cat.jpg";
-import pro from "@/assets/farewell-pro.jpg";
 import jewellery from "@/assets/jewellery-craft.jpg";
 import noseprint from "@/assets/noseprint-pendant.jpg";
 import keychain from "@/assets/keychain.jpg";
@@ -11,6 +9,12 @@ import ring from "@/assets/ring.jpg";
 import pawframe from "@/assets/pawprint-frame.jpg";
 import furBead from "@/assets/fur-bead.jpg";
 import urns from "@/assets/custom-urns.jpg";
+import pkgTiny from "@/assets/pkg-tiny.jpg";
+import pkgMini from "@/assets/pkg-mini.jpg";
+import pkgLite from "@/assets/farewell-cat.jpg";
+import pkgAir from "@/assets/pkg-air.jpg";
+import pkgPro from "@/assets/farewell-pro.jpg";
+import pkgProMax from "@/assets/pkg-promax.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
