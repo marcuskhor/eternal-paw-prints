@@ -173,6 +173,8 @@ const packages: Pkg[] = [
       "Premium paw print frame & photo album",
       "Full AI portrait series",
     ],
+    img: pkgProMax,
+    blurb: "Our signature farewell — 180 minutes, premium grooming, full jewellery set and a complete AI portrait series.",
   },
 ];
 
