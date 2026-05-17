@@ -36,6 +36,8 @@ type Pkg = {
   included: string[];
   keepsakes: string[];
   featured?: boolean;
+  img: string;
+  blurb: string;
 };
 
 const packages: Pkg[] = [
