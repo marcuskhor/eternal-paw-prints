@@ -131,6 +131,7 @@ const packages: Pkg[] = [
     ],
     img: pkgAir,
     blurb: "Our most-chosen package. A heartfelt farewell with a 925 silver fur/ash pendant and two AI portraits.",
+    featured: true,
   },
   {
     name: "AiPet Pro",
