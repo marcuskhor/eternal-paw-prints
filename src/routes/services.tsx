@@ -28,10 +28,13 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
+type Tier = { weight: string; price: string };
 type Pkg = {
   name: string;
   weight: string;
-  price: string;
+  price?: string;
+  tiers?: Tier[];
+  tierNote?: string;
   tagline?: string;
   included: string[];
   keepsakes: string[];
