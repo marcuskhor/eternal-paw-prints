@@ -290,10 +290,31 @@ function ServicesPage() {
                 </div>
                 <h3 className="mt-3 font-serif text-4xl text-foreground">{p.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">Pet weight · {p.weight}</p>
-                <div className="mt-4 flex items-baseline gap-3">
-                  <span className="font-serif text-3xl text-primary">{p.price}</span>
-                  {p.tagline && (
-                    <span className="font-serif italic text-foreground/60">{p.tagline}</span>
+                <div className="mt-4">
+                  {p.tiers ? (
+                    <div className="rounded-xl border border-border/60 bg-card/60 p-4">
+                      {p.tagline && (
+                        <p className="mb-2 font-serif italic text-foreground/60">{p.tagline}</p>
+                      )}
+                      <ul className="divide-y divide-border/50">
+                        {p.tiers.map((t) => (
+                          <li key={t.weight} className="flex items-baseline justify-between py-1.5 text-sm">
+                            <span className="text-foreground/75">{t.weight}</span>
+                            <span className="font-serif text-lg text-primary">{t.price}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {p.tierNote && (
+                        <p className="mt-2 text-[11px] text-muted-foreground">{p.tierNote}</p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-serif text-3xl text-primary">{p.price}</span>
+                      {p.tagline && (
+                        <span className="font-serif italic text-foreground/60">{p.tagline}</span>
+                      )}
+                    </div>
                   )}
                 </div>
                 <p className="mt-4 max-w-lg text-muted-foreground">{p.blurb}</p>
