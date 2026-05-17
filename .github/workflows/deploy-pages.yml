@@ -45,7 +45,7 @@ jobs:
         run: |
           # Locate the directory containing index.html produced by the build.
           SRC=""
-          for candidate in .output/public dist .output/client .output/static; do
+          for candidate in dist/client .output/public dist .output/client .output/static; do
             if [ -f "$candidate/index.html" ]; then
               SRC="$candidate"
               break
