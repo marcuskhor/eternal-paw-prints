@@ -34,10 +34,36 @@ jobs:
         env:
           GH_PAGES: "1"
 
-      - name: Add SPA fallback + Jekyll bypass
+      - name: Inspect build output
         run: |
-          cp .output/public/index.html .output/public/404.html
-          touch .output/public/.nojekyll
+          echo "=== .output tree ==="
+          find .output -maxdepth 4 -type f | head -100 || true
+          echo "=== dist tree (fallback) ==="
+          find dist -maxdepth 4 -type f 2>/dev/null | head -100 || true
+
+      - name: Prepare static output for Pages
+        run: |
+          # Locate the directory containing index.html produced by the build.
+          SRC=""
+          for candidate in .output/public dist .output/client .output/static; do
+            if [ -f "$candidate/index.html" ]; then
+              SRC="$candidate"
+              break
+            fi
+          done
+          if [ -z "$SRC" ]; then
+            echo "ERROR: could not find a directory containing index.html"
+            exit 1
+          fi
+          echo "Using static source: $SRC"
+          mkdir -p _site
+          cp -r "$SRC"/. _site/
+          # SPA fallback so deep links work on GitHub Pages.
+          cp _site/index.html _site/404.html
+          # Tell GitHub Pages not to process this with Jekyll.
+          touch _site/.nojekyll
+          echo "=== _site contents ==="
+          find _site -maxdepth 3 -type f | head -50
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
