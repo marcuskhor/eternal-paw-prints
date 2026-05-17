@@ -225,76 +225,95 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Farewell Packages</p>
-            <h2 className="mt-2 font-serif text-4xl text-foreground">All-inclusive farewells</h2>
-          </div>
-          <p className="max-w-md text-sm text-muted-foreground">
-            Each package includes private ceremony time, individual cremation,
-            ashes storage and a curated set of memorial keepsakes.
+      <section className="mx-auto max-w-6xl px-5 pt-20 pb-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-primary">Farewell Packages</p>
+          <h2 className="mt-2 font-serif text-4xl text-foreground">All-inclusive farewells</h2>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Six packages shaped around the size of your companion. Each one
+            includes private ceremony time, individual cremation, ashes storage
+            and a curated set of memorial keepsakes.
           </p>
         </div>
+      </section>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {packages.map((p) => (
+      {packages.map((p, idx) => {
+        const reverse = idx % 2 === 1;
+        const tinted = idx % 2 === 1;
+        return (
+          <section
+            key={p.name}
+            className={tinted ? "bg-[var(--cream)]" : ""}
+          >
             <div
-              key={p.name}
-              className={`flex flex-col rounded-2xl border bg-card p-7 shadow-card ${
-                p.featured ? "border-primary/50 ring-1 ring-primary/30" : "border-border/70"
+              className={`mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-2 md:py-20 ${
+                reverse ? "md:[&>*:first-child]:order-2" : ""
               }`}
             >
-              <div className="flex items-baseline justify-between">
-                <h3 className="font-serif text-2xl text-foreground">{p.name}</h3>
-                {p.featured && (
-                  <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[10px] uppercase tracking-wider text-primary">
-                    Popular
+              <div className="relative">
+                <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-[var(--blush)]/30 blur-2xl" />
+                <img
+                  src={p.img}
+                  alt={`${p.name} farewell setting`}
+                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-soft"
+                />
+              </div>
+
+              <div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-xs uppercase tracking-[0.3em] text-primary">
+                    Package {String(idx + 1).padStart(2, "0")}
                   </span>
-                )}
-              </div>
-              <p className="mt-1 text-xs text-muted-foreground">{p.weight}</p>
-              <div className="mt-4 font-serif text-3xl text-primary">{p.price}</div>
-              {p.tagline && (
-                <p className="font-serif italic text-foreground/60">{p.tagline}</p>
-              )}
+                  {p.featured && (
+                    <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[10px] uppercase tracking-wider text-primary">
+                      Most chosen
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-3 font-serif text-4xl text-foreground">{p.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Pet weight · {p.weight}</p>
+                <div className="mt-4 flex items-baseline gap-3">
+                  <span className="font-serif text-3xl text-primary">{p.price}</span>
+                  {p.tagline && (
+                    <span className="font-serif italic text-foreground/60">{p.tagline}</span>
+                  )}
+                </div>
+                <p className="mt-4 max-w-lg text-muted-foreground">{p.blurb}</p>
 
-              <div className="mt-6 space-y-1.5">
-                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Services</p>
-                {p.included.map((i) => (
-                  <p key={i} className="flex gap-2 text-sm text-foreground/80">
-                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /> {i}
-                  </p>
-                ))}
-              </div>
-
-              <div className="mt-5 space-y-1.5">
-                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Keepsakes</p>
-                {p.keepsakes.map((i) => (
-                  <p key={i} className="flex gap-2 text-sm text-foreground/80">
-                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--blush)]" /> {i}
-                  </p>
-                ))}
-              </div>
-
-              <div className="mt-7">
-                <WhatsAppButton label={`Enquire about ${p.name}`} className="w-full" />
+                <div className="mt-7 grid gap-6 sm:grid-cols-2">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Services</p>
+                    <ul className="mt-3 space-y-1.5">
+                      {p.included.map((i) => (
+                        <li key={i} className="flex gap-2 text-sm text-foreground/80">
+                          <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /> {i}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Keepsakes</p>
+                    <ul className="mt-3 space-y-1.5">
+                      {p.keepsakes.map((i) => (
+                        <li key={i} className="flex gap-2 text-sm text-foreground/80">
+                          <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--blush)]" /> {i}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
+          </section>
+        );
+      })}
 
-        <p className="mt-6 text-xs text-muted-foreground">
+      <section className="mx-auto max-w-6xl px-5 pt-4 pb-16">
+        <p className="text-center text-xs text-muted-foreground">
           * Pricing varies by weight bracket. After-hours sessions: 6–8 pm + RM 100, 9–11 pm + RM 150.
         </p>
       </section>
 
-      <section className="bg-[var(--cream)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-2">
-          <img src={farewell} alt="Cat resting peacefully with candles" className="w-full rounded-2xl shadow-soft" />
-          <img src={pro} alt="Sleeping pet in a wooden box surrounded by flowers" className="w-full rounded-2xl shadow-soft" />
-        </div>
-      </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="grid gap-12 md:grid-cols-2">
