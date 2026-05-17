@@ -59,6 +59,8 @@ const packages: Pkg[] = [
       "1× Memorial Photo Frame (~8 × 8 cm)",
       "1× AI Portrait Photo Design",
     ],
+    img: pkgTiny,
+    blurb: "A quiet, intimate farewell for the smallest companions — hamsters, hedgehogs, lizards and other tiny ones.",
   },
   {
     name: "AiPet Mini",
@@ -80,6 +82,8 @@ const packages: Pkg[] = [
       "1× Fur / Ash Memorial Bead",
       "1× AI Portrait Photo Design",
     ],
+    img: pkgMini,
+    blurb: "Includes a proper farewell ceremony with fresh flowers and a pawprint frame to remember them by.",
   },
   {
     name: "AiPet Lite",
@@ -101,6 +105,8 @@ const packages: Pkg[] = [
       "1× Fur / Ash Peace Pendant",
       "1× AI Portrait Photo Design",
     ],
+    img: pkgLite,
+    blurb: "A loving farewell for cats, small dogs and rabbits — including a fur memorial glass ball and peace pendant.",
   },
   {
     name: "AiPet Air",
@@ -123,7 +129,8 @@ const packages: Pkg[] = [
       "1× Fur/Ash Peace Pendant",
       "2× AI Portrait Photo Design",
     ],
-    featured: true,
+    img: pkgAir,
+    blurb: "Our most-chosen package. A heartfelt farewell with a 925 silver fur/ash pendant and two AI portraits.",
   },
   {
     name: "AiPet Pro",
@@ -144,6 +151,8 @@ const packages: Pkg[] = [
       "Stone or fur memorial pendant",
       "Multiple AI portrait designs",
     ],
+    img: pkgPro,
+    blurb: "A longer 120-minute ceremony, premium grooming and a curated keepsake set built around your pet.",
   },
   {
     name: "AiPet Pro Max",
