@@ -5,6 +5,8 @@ import ceremony from "@/assets/ceremony-room.jpg";
 import farewell from "@/assets/farewell-cat.jpg";
 import urns from "@/assets/custom-urns.jpg";
 import noseprint from "@/assets/noseprint-pendant.jpg";
+import guideWipe from "@/assets/guide-wipe.jpg";
+import guideBox from "@/assets/guide-box.jpg";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const Route = createFileRoute("/")({
