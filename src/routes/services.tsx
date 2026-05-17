@@ -113,8 +113,13 @@ const packages: Pkg[] = [
   },
   {
     name: "AiPet Air",
-    weight: "2 – 10+ kg",
-    price: "from RM 899",
+    weight: "2 kg & above",
+    tiers: [
+      { weight: "2 – 2.9 kg", price: "RM 899" },
+      { weight: "3 – 5.9 kg", price: "RM 1,099" },
+      { weight: "6 – 10 kg", price: "RM 1,399" },
+    ],
+    tierNote: "10.1 kg & above: + RM 150 per 5 kg",
     tagline: "Warm farewell",
     included: [
       "60-min Private Farewell with Ceremony",
@@ -138,8 +143,13 @@ const packages: Pkg[] = [
   },
   {
     name: "AiPet Pro",
-    weight: "2 – 10+ kg",
-    price: "from RM 1,899",
+    weight: "2 kg & above",
+    tiers: [
+      { weight: "2 – 2.9 kg", price: "RM 1,899" },
+      { weight: "3 – 5.9 kg", price: "RM 2,099" },
+      { weight: "6 – 10 kg", price: "RM 2,399" },
+    ],
+    tierNote: "10.1 kg & above: + RM 150 per 5 kg",
     tagline: "Eternal care",
     included: [
       "120-min Private Farewell with Ceremony",
@@ -160,8 +170,13 @@ const packages: Pkg[] = [
   },
   {
     name: "AiPet Pro Max",
-    weight: "2 – 10+ kg",
-    price: "from RM 3,899",
+    weight: "2 kg & above",
+    tiers: [
+      { weight: "2 – 2.9 kg", price: "RM 3,899" },
+      { weight: "3 – 5.9 kg", price: "RM 4,199" },
+      { weight: "6 – 10 kg", price: "RM 4,499" },
+    ],
+    tierNote: "10.1 kg & above: + RM 150 per 5 kg",
     tagline: "Treasured forever",
     included: [
       "180-min Private Farewell with Ceremony",
